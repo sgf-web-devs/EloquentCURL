@@ -13,3 +13,4 @@ Thumbs.db
 .idea
 vendor
 composer.lock
+tests/config/database.php
