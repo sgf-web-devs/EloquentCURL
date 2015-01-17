@@ -4,15 +4,27 @@ return array(
 	'default' => 'default',
 	'connections' => array(
 		'eloquentcurl' => array(
-			'driver' => 'eloquentcurl',
-			'host' => 'localhost',
-			'port' => 80,
-			'username' => '',
-			'password' => '',
-			'api-private-key' => '',
-			'api-public-key'  => '',
-			'api-version' => '',
-			'oauth'	=> false
+			'host'            	=> 'http://localhost',
+			'port'            	=> 80,
+			'api-version'     	=> '',
+			'auth-type'			=> '',
+
+			'auths' => array(
+				'oauth' => array(
+					'private-key' 	=> '',
+					'public-key' 	=> '',
+					'token'			=> '',
+					'token-private'	=> ''
+				),
+				'basic' => array(
+					'username' 	=> '',
+					'password'	=> ''
+				),
+				'digest' => array(
+					'username'	=> '',
+					'password'	=> ''
+				)
+			)
 		),
 		'default' => array(
 			'driver' => 'eloquentcurl'
