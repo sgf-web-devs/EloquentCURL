@@ -1,7 +1,7 @@
 <?php
 
 return array(
-	'default' => 'default',
+	'default' => 'eloquentcurl',
 	'connections' => array(
 		'eloquentcurl' => array(
 			'host'            	=> 'http://localhost',
@@ -25,9 +25,6 @@ return array(
 					'password'	=> ''
 				)
 			)
-		),
-		'default' => array(
-			'driver' => 'eloquentcurl'
 		)
 	)
 );
