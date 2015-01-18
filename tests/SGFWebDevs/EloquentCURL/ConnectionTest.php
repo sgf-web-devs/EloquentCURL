@@ -39,7 +39,10 @@ class ConnectionTest extends TestCase {
 
 		// Test top level getters
 		$this->assertEquals($config['host'], $curl->getHost(), 'Host does not match.');
+
+		$this->assertTrue(is_int($curl->getPort()), 'Port is not an integer.');
 		$this->assertEquals($config['port'], $curl->getPort(), 'Port does not match.');
+
 		$this->assertEquals($config['api-version'], $curl->getApiVersion(), 'Version does not match.');
 		$this->assertEquals($config['auth-type'], $curl->getAuthType(), 'Auth Type does not match.');
 
@@ -59,11 +62,12 @@ class ConnectionTest extends TestCase {
 		$this->assertEquals($config['auths']['digest']['password'], $curl->getAuthOption('digest', 'password'), 'Password does not match.');
 	}
 
-	/**
-	 * @depends testGetters
-	 */
 	public function testConnection () {
 		$connection = $this->getConnectionWithConfig('eloquentcurl');
 		$this->assertInstanceOf('SGFWebDevs\EloquentCURL\Connection', $connection);
+	}
+
+	public function testClientInstance () {
+
 	}
 }

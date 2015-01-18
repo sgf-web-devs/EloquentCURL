@@ -39,8 +39,11 @@ class Connection extends IlluminateConnection {
 	}
 
 	public function createConnection () {
+		$port = $this->getPort();
+		$port = ($port == 80) ? '' : ':' . $port;
+
 		$client = new GuzzleClient(array(
-			'base_url'	=> $this->getHost() . $this->getPort() . '/{version}',
+			'base_url'	=> $this->getHost() . $port . '/{version}',
 			array(
 				'version'	=> $this->getApiVersion()
 			)
@@ -63,7 +66,7 @@ class Connection extends IlluminateConnection {
 	}
 
 	public function getPort () {
-		return $this->getConfig('port', $this->defaults['port']);
+		return (int) $this->getConfig('port', $this->defaults['port']);
 	}
 
 	public function getApiVersion () {
