@@ -17,7 +17,7 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	public function setUp () {
 		parent::setUp();
 		$resolver = M::mock('Illuminate\Database\ConnectionResolverInterface');
-		$resolver->shouldReceive('connection')->andReturn($this->getConnectionWithConfig('default'));
+		$resolver->shouldReceive('connection')->andReturn($this->getConnectionWithConfig());
 	}
 
 	public function tearDown () {
@@ -31,7 +31,7 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	protected function getConnectionWithConfig ($config = null) {
 		$connection = array();
 		if (is_null($config))
-			$connection = $this->config['connections']['default'];
+			$connection = $this->config['connections'][$this->config['default']];
 		else
 			$connection = $this->config['connections'][$config];
 		return new Connection($connection);
