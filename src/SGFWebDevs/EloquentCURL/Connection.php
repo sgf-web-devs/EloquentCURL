@@ -75,11 +75,11 @@ class Connection extends IlluminateConnection {
 	}
 
 	public function getAuth ($auth_type) {
-		return $this->getConfig('auths.' . $auth_type, $this->defaults['auth-type']['auths'][$auth_type]);
+		return $this->getConfig('auths.' . $auth_type, $this->defaults['auths'][$auth_type]);
 	}
 
 	public function getAuthOption ($auth_type, $option) {
-		return array_get($this->getAuth($auth_type), $option, $this->defaults['auth-type']['auths'][$auth_type][$option]);
+		return array_get($this->getAuth($auth_type), $option, $this->defaults['auths'][$auth_type][$option]);
 	}
 
 	public function getDriver () {
