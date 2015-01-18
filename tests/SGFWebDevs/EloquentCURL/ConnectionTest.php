@@ -68,6 +68,9 @@ class ConnectionTest extends TestCase {
 	}
 
 	public function testClientInstance () {
-
+		$connection = $this->getConnectionWithConfig('eloquentcurl');
+		$client = $connection->getClient();
+		$this->assertInstanceOf('\GuzzleHttp\Client', $client);
 	}
+
 }
