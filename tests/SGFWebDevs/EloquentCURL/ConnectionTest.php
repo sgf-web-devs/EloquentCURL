@@ -10,6 +10,7 @@ class ConnectionTest extends TestCase {
 	}
 
 	public function testConnection () {
-
+		$connection = $this->getConnectionWithConfig('neo4j');
+		$this->assertInstanceOf('SGFWebDevs\EloquentCURL\Connection', $connection);
 	}
 }

@@ -3,6 +3,7 @@
 namespace SGFWebDevs\EloquentCURL\Tests;
 
 use Mockery as M;
+use PHPUnit_Framework_TestCase;
 use SGFWebDevs\EloquentCURL\Connection;
 use SGFWebDevs\EloquentCURL\Eloquent\Model;
 
